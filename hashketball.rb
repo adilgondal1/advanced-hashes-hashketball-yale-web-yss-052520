@@ -229,3 +229,9 @@ def player_with_longest_name()
      name.length
     end
 end
+
+def long_name_steals_a_ton?()
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])   
+  name = player_with_longest_name
+  steals = 
+  
