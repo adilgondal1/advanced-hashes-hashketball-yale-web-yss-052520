@@ -202,4 +202,50 @@ def most_points_scored()
   name
 end
 
+def winning_team()
+  home_players = game_hash[:home][:players]
+  away_players = game_hash[:away][:players]
+  home_points = 0 
+  away_points = 0
+  home_players.each do |hash|
+    home_points += hash[:points]
+  end
+  away_players.each do |hash|
+    away_points += hash[:points]
+  end
+  if home_points > away_points
+    return game_hash[:home][:team_name]
+  else 
+    return game_hash[:away][:team_name]
+  end
+end
+
+def player_with_longest_name()
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  all_names = all_players.collect do |hash|
+    hash[:player_name]
+  end
+   all_names.max_by do |name|
+     name.length
+    end
+end
+
+def most_steals()
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  steals = all_players[0][:steals]
+  name = all_players[0][:player_name]
+  all_players.each do |hash|
+    if hash[:steals] > steals
+      steals = hash[:steals]
+      name = hash[:player_name]
+    end
+  end
+  name
+end
+
+def long_name_steals_a_ton?()
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])   
+  name = player_with_longest_name
+  name.eql?(most_steals)
+end
   
