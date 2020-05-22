@@ -221,5 +221,3 @@ def winning_team()
 end
 
 
-puts winning_team()
-  
