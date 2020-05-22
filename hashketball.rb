@@ -202,4 +202,6 @@ def most_points_scored()
   name
 end
 
+puts most_points_scored(0)
+
   
