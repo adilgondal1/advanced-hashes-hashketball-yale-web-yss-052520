@@ -221,5 +221,9 @@ def winning_team()
 end
 
 def player_with_longest_name()
-  
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  all_names = all_players.collect do |hash|
+    hash[:player_name]
+  pp all_names  
+
 end
