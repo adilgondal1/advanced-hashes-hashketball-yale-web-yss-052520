@@ -230,8 +230,25 @@ def player_with_longest_name()
     end
 end
 
+def most_steals()
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  steals = all_players[0][:steals]
+  name = all_players[0][:player_name]
+  all_players.each do |hash|
+    if hash[:steals] > steals
+      steals = hash[:steals]
+      name = hash[:player_name]
+    end
+  end
+  name
+end
+
 def long_name_steals_a_ton?()
   all_players = game_hash[:home][:players].concat(game_hash[:away][:players])   
   name = player_with_longest_name
-  steals = 
+  name.eql?(most_steals)
+end
+
+puts most_steals()
+puts player_with_longest_name()
   
