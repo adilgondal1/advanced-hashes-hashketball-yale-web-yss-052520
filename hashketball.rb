@@ -229,5 +229,3 @@ def player_with_longest_name()
      name.length
     end
 end
-
-puts player_with_longest_name()
