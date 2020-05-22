@@ -213,8 +213,11 @@ def winning_team()
   away_players.each do |hash|
     away_points += hash[:points]
   end
-  puts home_points
-  away_points
+  if home_points > away_points
+    return game_hash[:home][:team_name]
+  else 
+    return game_hash[:away][:team_name]
+  end
 end
 
 puts winning_team()
