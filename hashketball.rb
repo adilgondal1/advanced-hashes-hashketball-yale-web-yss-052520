@@ -216,4 +216,6 @@ def winning_team()
   puts home_points
   away_points
 end
+
+puts winning_team(0)
   
