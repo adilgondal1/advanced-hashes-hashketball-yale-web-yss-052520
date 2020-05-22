@@ -217,5 +217,5 @@ def winning_team()
   away_points
 end
 
-puts winning_team(0)
+puts winning_team()
   
