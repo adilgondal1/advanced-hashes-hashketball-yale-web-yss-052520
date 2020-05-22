@@ -185,7 +185,21 @@ def big_shoe_rebounds()
       #puts hash[:player_name]
     end
   end
-  puts shoe
+  #puts shoe
   rebounds
 end
+
+def most_points_scored()
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  points = all_players[0][:points]
+  name = all_players[0][:player_name]
+  all_players.each do |hash|
+    if hash[:points] > points
+      points = hash[:points]
+      name = hash[:player_name]
+    end
+  end
+  name
+end
+
   
