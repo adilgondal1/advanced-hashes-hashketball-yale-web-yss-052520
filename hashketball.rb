@@ -248,8 +248,4 @@ def long_name_steals_a_ton?()
   name = player_with_longest_name
   name.eql?(most_steals)
 end
-
-puts most_steals()
-puts player_with_longest_name()
-puts long_name_steals_a_ton?()
   
