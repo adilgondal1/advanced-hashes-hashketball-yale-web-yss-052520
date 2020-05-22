@@ -126,4 +126,66 @@ def game_hash
   }
 end
 
-# Write code here
+def num_points_scored(name)
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  found = all_players.find do |hash|
+    hash[:player_name].eql?(name)
+  end
+  found[:points]
+end
+
+def shoe_size(name)
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  found = all_players.find do |hash|
+    hash[:player_name].eql?(name)
+  end
+  found[:shoe]
+end
+
+def team_colors(name)
+  if game_hash[:home][:team_name].eql?(name)
+    return game_hash[:home][:colors]
+  else 
+    return game_hash[:away][:colors]
+  end
+end
+
+def team_names()
+  [game_hash[:home][:team_name],game_hash[:away][:team_name]]  
+end
+
+def player_numbers(name)
+  team = game_hash[:home]
+  if game_hash[:away][:team_name].eql?(name)
+    team = game_hash[:away]
+  end
+  all_players = team[:players]
+  jersey_numbers = all_players.collect do |hash|
+    hash[:number]
+  end
+  jersey_numbers
+end
+
+def player_stats(name)
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  found = all_players.find do |hash|
+    hash[:player_name].eql?(name)
+  end
+  found
+end
+
+def big_shoe_rebounds()
+  all_players = game_hash[:home][:players].concat(game_hash[:away][:players])
+  shoe = all_players[0][:shoe]
+  rebounds = all_players[0][:rebounds]
+  all_players.each do |hash|
+    if hash[:shoe] > shoe
+      shoe = hash[:shoe]
+      rebounds = hash[:rebounds]
+      #puts hash[:player_name]
+    end
+  end
+  puts shoe
+  rebounds
+end
+  
