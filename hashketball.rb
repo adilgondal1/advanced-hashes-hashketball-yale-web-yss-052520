@@ -227,4 +227,4 @@ def player_with_longest_name()
   pp all_names  
 end
 
-puts player_with_longest_name(0)
+puts player_with_longest_name()
